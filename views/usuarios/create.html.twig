@@ -1,0 +1,36 @@
+  <link rel="stylesheet" type="text/css" href="../../assets/css/usuario_form.css">
+
+
+  {%  if(error) %}
+
+  {{ error }}
+
+  {% endif %}
+
+  <form action="index.php" name="userForm" id="userForm" method="post">
+    <input type="hidden" name="controller" value="UserController"/>
+    <input type="hidden" name="action" value="store"/>
+
+    <h2>Crear nuevo administrador</h2>
+
+    <label for="name">Nombre</label>
+    <input type="text" name="name" id="name" placeholder="Nombre:">
+
+    <label for="password">Contrasenia</label>
+    <input type="password" name="password" id="psw1" placeholder="Contrasenia:">
+
+    <label for="password2">Repita la contrasenia</label>
+    <input type="password" name="password2" id="psw2" placeholder="Contrasenia:">
+
+    <input type="submit" name="btn" id="btn" value="registrar">
+
+  </form>
+
+  <script
+    src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+  <script src="../../assets/js/user_form.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $('#userForm').on('submit', validar);
+  </script>

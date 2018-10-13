@@ -1,0 +1,12 @@
+<h2>Libros</h2>
+<ul> 
+  {% for libro in libros %}
+  <li>
+  <a href="index.php?controller=LibroController&action=show&id={{ libro.id }}">{{ libro.titulo }}</a></li>
+  {{ libro.portada }}
+  <img src={{ libro.portada  }} "width="200" alt="LogoTipo">
+  </li>
+  {% endfor %}
+</ul>
+
+        <a href="index.php?controller=LibroController&action=create">Agregar un nuevo libro</a></li>

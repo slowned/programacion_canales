@@ -1,0 +1,8 @@
+ <h2> {{ autor.nombre }}, {{ autor.apellido }} </h2>
+
+
+{% for libro in libros %}
+  <p>{{ libro.titulo }}</p>
+{% endfor %}
+
+<li><a href="index.php?controller=AutorController&action=index">listar todos los autores</a></li>

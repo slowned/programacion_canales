@@ -1,0 +1,20 @@
+//cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css
+//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js
+<table>
+    <tr>
+        <th>Hora</th>
+        <th>Programa</th>
+        <th>Canal</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+<script>
+    $(document).ready(function(){
+        $('#myTable').DataTable();
+    });
+</script>

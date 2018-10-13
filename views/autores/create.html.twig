@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="../../assets/css/usuario_form.css">
+</head>
+<body>
+
+  <form action="index.php" name="autorForm" id="autorForm" method="post">
+    <input type="hidden" name="controller" value="AutorController">
+    <input type="hidden" name="action" value="store">
+
+    <h2>Registro de autor</h2>
+
+    <label for="apelllido">Apellido</label>
+    <input type="text" name="apellido" id="apellido" placeholder="Apellido:">
+
+    <label for="nombre">Nombre</label>
+    <input type="text" name="nombre" id="nombre" placeholder="Nombre:">
+
+      <input type="submit" name="btn" id="btn" value="crear">
+
+  </form>
+
+  <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+  </script>
+  
+  <script src="../../assets/js/autor_form.js" type="text/javascript"></script>
+
+  <script type="text/javascript">
+      $('#autorForm').on('submit', validar);
+  </script>
+
+</body>
+</html>

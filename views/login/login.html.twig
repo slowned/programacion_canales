@@ -1,0 +1,19 @@
+<div>
+  <link rel="stylesheet" type="text/css" href="../../assets/css/base.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/usuario_form.css">
+</div>
+
+{% if(error) %}
+  {{error}}
+{% endif %}
+
+<form method='post' action='index.php'>
+  <input type='hidden' name='controller' value='SessionController'/>
+  <input type='hidden' name='action' value='store'/>
+
+  <label for="username">Nombre de Usuario</label>
+  <input type='text' name='username' placeholder='email' required />
+  <label for="password">Contrasenia</label>
+  <input type='password' name='password' required />
+  <input type='submit' value='Entrar'/>
+</form>

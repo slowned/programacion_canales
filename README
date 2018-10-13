@@ -1,0 +1,28 @@
+
+Instalar Paquetes requeridos:
+
+```bash
+sudo apt-get install -y \
+  php5 \
+  php5-cli \
+  php5-mysql 
+```
+
+Instalar mysql:
+
+```bash
+sudo apt-get install -y mysql-server
+```
+
+Crear base de datos:
+
+```bash
+mysql -uroot -p -e 'create database php_entrega'
+```
+
+Correr el servidor de prueba:
+
+```bash
+# parados en el mismo directorio del index.php
+php -S 0.0.0.0:8000
+```
