@@ -1,0 +1,24 @@
+
+  {%  if(error) %}
+
+  {{ error }}
+
+  {% endif %}
+
+  <form action="backend.php" name="canalForm" id="canalForm" method="post">
+    <input type="hidden" name="controller" value="CanalController"/>
+    <input type="hidden" name="action" value="store"/>
+
+    <h2>Crear nuevo Canal</h2>
+
+    <label for="name">Nuevo Canal</label>
+    <input type="text" name="nombre" id="canal" placeholder="Nombre:">
+
+    <label for="name">Nuevo Numero</label>
+    <input type="number" name="numero" id="numero" placeholder="Numero:">
+
+
+    <input type="submit" name="btn" id="btn" value="registrar">
+
+  </form>
+

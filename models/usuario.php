@@ -17,15 +17,15 @@ class Usuario{
   }
 
   static function findById($params){
-    $pdo = new PDO('mysql:host=localhost;dbname=bibloteca', 'root', '1234');
+    $pdo = new PDO('mysql:host=localhost;dbname=canales', 'admin', 'a.s');
     $query = $pdo->prepare("SELECT * FROM usuarios WHERE id = :id");
     $query->execute($params);
     return $query->fetchAll(PDO::FETCH_ASSOC);
   }
 
   static function where($params){
-    $pdo = new PDO('mysql:host=localhost;dbname=bibloteca', 'root', '1234');
-    $query = $pdo->prepare("SELECT * FROM usuarios u WHERE u.email = :username AND clave = :password");
+    $pdo = new PDO('mysql:host=localhost;dbname=canales', 'admin', 'a.s');
+    $query = $pdo->prepare("SELECT * FROM usuario u WHERE u.nombreusuario =s :username AND clave = :password");
     $query->execute($params);
     return $query->fetch(PDO::FETCH_ASSOC);
   }

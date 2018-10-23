@@ -1,0 +1,16 @@
+<form method='post' action='backend.php'>
+  <input type='hidden' name='controller' value='CanalController'/>
+  <input type='hidden' name='action' value='update'/>
+
+  <label for='canal_numero'> Nombre del Canal</label>
+  <input type='text' name='canal' value='{{canal.nombre}}' required />
+
+  <label for='canal_numero'>Numero del canal</label>
+  <input type='text' name='numero' value='{{canal.numero}}'/>
+
+  <input type='hidden' name='id' value='{{canal.id}}'/>
+
+  <input type='submit'/>
+</form>
+
+<a href='backend.php?controller=CanalController&action=index'>Volver Atras</a>

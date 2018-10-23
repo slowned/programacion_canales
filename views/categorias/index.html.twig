@@ -1,0 +1,12 @@
+<h2>CATEGORIAS</h2>
+
+<ul>
+{% for c in categorias %}
+  <p>{{ c.nombre }}</p>
+  <a href='backend.php?controller=CategoriaController&action=destroy&id={{c.id}}'> eliminar </a>
+  <a href='backend.php?controller=CategoriaController&action=edit&id={{c.id}}'> editar </a>
+  <a href='backend.php?controller=CategoriaController&action=show&id={{c.id}}'> ver mas </a>
+{% endfor %}
+</ul>
+
+  <a href='backend.php?controller=CategoriaController&action=create'> agregar categoria </a>

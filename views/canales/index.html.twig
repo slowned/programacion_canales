@@ -1,0 +1,13 @@
+
+<h2>CANALES</h2>
+
+<ul>
+  {% for c in canales %}
+    <li>{{ c.nombre }}, {{ c.numero }}</li>
+    <a href='backend.php?controller=CanalController&action=destroy&id={{c.id}}'> eliminar </a>
+    <a href='backend.php?controller=CanalController&action=edit&id={{c.id}}'> editar </a>
+    <a href='backend.php?controller=CanalController&action=show&id={{c.id}}'> ver mas </a>
+  {% endfor %}
+</ul>
+
+<a href='backend.php?controller=CanalController&action=create'> agregar canal </a>

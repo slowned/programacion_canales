@@ -1,0 +1,14 @@
+<form method='post' action='backend.php'>
+  <input type='hidden' name='controller' value='CategoriaController'/>
+  <input type='hidden' name='action' value='update'/>
+
+  <h2>Editar Categoria</h2>
+  <label for='categoria_nombre'> Nombre de la categoria</label>
+  <input type='text' name='categoria' value='{{categoria.nombre}}' required />
+
+  <input type='hidden' name='id' value='{{categoria.id}}'/>
+
+  <input type='submit'/>
+</form>
+
+<a href='backend.php?controller=CategoriaController&action=index'>Volver Atras</a>

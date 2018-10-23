@@ -17,7 +17,7 @@ class UserController extends BaseController{
         Usuario::save(compact('nombre', 'clave'));
         header('Location: backend.php?controller=UserController&action=index');
     }
-    $error = 'el email esta en uso';
+    $error = 'el nombre de usuario esta en uso';
     return $this->render('usuarios/create', compact('error'));
   }
 

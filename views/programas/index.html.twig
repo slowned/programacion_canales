@@ -1,0 +1,12 @@
+<h2>PROGRAMAS</h2>
+
+<ul>
+  {% for p in programas %}
+    <li>{{ p.nombre }}, {{ p.duracion }}</li>
+    <a href='backend.php?controller=ProgramaController&action=destroy&id={{p.id}}'> eliminar </a>
+    <a href='backend.php?controller=ProgramaController&action=edit&id={{p.id}}'> editar </a>
+    <a href='backend.php?controller=ProgramaController&action=show&id={{p.id}}'> ver mas </a>
+  {% endfor %}
+</ul>
+
+<a href='backend.php?controller=ProgramaController&action=create'> agregar programa </a>

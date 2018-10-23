@@ -18,11 +18,11 @@ class SessionController extends BaseController
 
 		if($user){
             $_SESSION['user'] = $user;
-        } else {
-            $error = 'usuario o contrasenia invalida';
-            return $this->render('login/login', compact('error'));
-        }
-		header('Location: index.php?controller=BaseController&action=index');
+    } else {
+        $error = 'usuario o contrasenia invalida';
+        return $this->render('login/login', compact('error'));
+    }
+		header('Location: backend.php?controller=BaseController&action=home');
 	}
 
 
@@ -30,7 +30,7 @@ class SessionController extends BaseController
 	{
 		unset($_SESSION['user']);
 		session_destroy();
-		header('Location: index.php');
+		header('Location: backend.php');
 	}
 }
 ?>

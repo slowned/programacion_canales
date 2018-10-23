@@ -1,14 +1,10 @@
 <?php
 
-
-//$models = [
-//  'marca',
-//];
-
 $models = Array(
-  'autor',
-  'libro',
   'usuario',
+  'canal',
+  'programa',
+  'categoria'
 );
 
 foreach ($models as $model) 
@@ -18,8 +14,9 @@ foreach ($models as $model)
 
 $controllers = Array(
   'base',
-  'autor',
-  'libro',
+  'programa',
+  'canal',
+  'categoria',
   'usuario',
   'session',
   'index',

@@ -22,9 +22,13 @@ class BaseController {
         return $this->render('home', compact('libros', 'user'));
 	}
 
-    public function backend($params){
-        return $this->render('login/login');
-    }
+  public function backend($params){
+      return $this->render('login/login');
+  }
+
+  public function home($params){
+    return $this-render('home/home');
+  }
 
 }
 ?>

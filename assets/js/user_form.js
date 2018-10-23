@@ -2,22 +2,6 @@ var formulario = document.getElementById("userForm"),
     elementos = formulario.elements,
     boton = document.getElementById("btn");
 
-function validarEmail(e) {
-    if(formulario.email.value !== ""){
-        if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3k})+$/.test(formulario.email.value)){
-            return true;
-        } else {
-              alert("se ha ingresado un email incorrecto");
-              e.preventDefault();
-              return false;
-        }
-
-    } else {
-        alert("Completa el campo email");
-        e.preventDefault();
-    }
-}
-
 function validarNombre(e) {
     if(formulario.name.value !== ""){
         if(/^[A-Za-z]+$/.test(formulario.name.value)){
@@ -33,28 +17,6 @@ function validarNombre(e) {
     }
 }
 
-function validarApellido(e){
-    if(formulario.surname.value !== ""){
-        if(/^[A-Za-z]+$/.test(formulario.surname.value)){
-            return true;
-        } else {
-              alert("el campo apellido solo puede contener letras");
-              e.preventDefault();
-              return false;
-        }
-    } else {
-        alert("Completa el campo apellido");
-        e.preventDefault();
-    }
-}
-function validarFoto(e){
-    if(formulario.profile_pic.value !== ""){
-        return true;
-    } else {
-        alert("Seleccione una foto");
-        e.preventDefault();
-    }
-}
 
 function validarPass(e){
     if(formulario.password.value !== ""){
@@ -87,11 +49,7 @@ function comparar(e){
 }
 
 function validar(e){
-  validarEmail(e);
   validarNombre(e);
-  validarApellido(e);
-  validarFoto(e);
-  validarPass(e);
-  comparar(e);
+  validarPass(e); comparar(e);
 }
 

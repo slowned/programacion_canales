@@ -1,0 +1,17 @@
+<p>ESTAS EN EL HOME</p>
+<nav>
+  <ul>
+    {% if(user) %}
+      <li><a href="backend.php?controller=UserController&action=show&id={{ user.id }}">{{ user.nombre }}</a></li>
+      <li><a href="backend.php?controller=SessionController&action=destroy">log out</a></li>
+      <li><a href="backend.php?controller=SessionController&action=destroy">log out</a></li>
+      <li><a href="backend.php?controller=ProgramaController&action=create">Crear Programa</a></li>
+      <li><a href="backend.php?controller=CanalController&action=create">Crear Canal</a></li>
+      <li><a href="backend.php?controller=CategoriaController&action=create">Crear Categoria</a></li>
+    {% else %}
+      <li><a href="backend.php?controller=SessionController&action=create">iniciar Sesion</a></li>
+    {% endif %}
+
+  </ul>
+</nav>
+

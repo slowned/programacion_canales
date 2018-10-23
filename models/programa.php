@@ -1,16 +1,21 @@
 <?php
-class Canal{
+class Programa{
 
   static function all(){
 		$pdo = new PDO('mysql:host=localhost;dbname=canales', 'admin', 'a.s');
-    $query = $pdo->prepare("SELECT * FROM canal");
+    $query = $pdo->prepare("SELECT * FROM programa");
     $query->execute();
     return $query->fetchAll(PDO::FETCH_ASSOC);
   }
 
   static function save($params){
 		$pdo = new PDO('mysql:host=localhost;dbname=canales', 'admin', 'a.s');
-    $query = $pdo->prepare("INSERT INTO canal(nombre, numero) VALUES(:nombre, :numero)");
+    $query = $pdo->prepare(
+      "INSERT INTO programa(nombre, descripcion, fecha, horainicio,
+                            duracion, categoriaprograma_id, canal_id)
+       VALUES(:nombre, :descripcion, :fecha, :horainicio,
+               :duracion, :categoria_id, :canal_id)"
+    );
     $query->execute($params);
   }
 
@@ -36,7 +41,7 @@ class Canal{
 
   static function findByName($params){
 		$pdo = new PDO('mysql:host=localhost;dbname=canales', 'admin', 'a.s');
-    $query = $pdo->prepare("SELECT * FROM canal WHERE nombre = :nombre");
+    $query = $pdo->prepare("SELECT * FROM programa WHERE nombre = :programa");
     $query->execute($params);
     return $query->fetch(PDO::FETCH_ASSOC);
 
