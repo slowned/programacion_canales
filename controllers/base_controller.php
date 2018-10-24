@@ -17,7 +17,6 @@ class BaseController {
 	}
 
 	public function index($params) {
-        $libros = Libro::all();
         $user = $_SESSION['user'];
         return $this->render('home', compact('libros', 'user'));
 	}
@@ -27,7 +26,8 @@ class BaseController {
   }
 
   public function home($params){
-    return $this-render('home/home');
+    $user = $_SESSION['user'];
+    return $this->render('home/home',compact('user'));
   }
 
 }

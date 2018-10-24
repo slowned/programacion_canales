@@ -14,25 +14,23 @@ class ProgramaController extends BaseController {
 
   public function store($request){
     $programa = $request['programa'];
-    $canal_id = $request['idCanal'];
-    $categoria_id = $request['idCategoria'];
+    $canal_id = (int)$request['idCanal'];
+    $categoria_id = (int)$request['idCategoria'];
     $descripcion = $request['descripcion'];
-    $fecha = $request ['fecha'];
+    $fecha = $request['fecha'];
     $hora_inicio = $request['hora_inicio'];
-    $duracion = $request['duracion'];
-    //$fecha = date("Y-m-d", strtotime($_POST['fecha']));
-    //echo "fecha_cambio: " . $fecha;
-    print_r($programa);
-    print_r($fecha);
-    echo "esta en el store antes el vardump";
-    var_dump ($fecha,$programa);
+    $duracion = (int)$request['duracion'];
+    $fecha = date("Y-m-d", strtotime($_POST['fecha']));
+
+    //var_dump ($fecha);
+    //die();
 
     if(empty(Programa::findByName(compact('programa')))){
       Programa::save(compact('programa', 'descripcion','fecha', 'hora_inicio', 'duracion', 'categoria_id', 'canal_id'));
-      header('Location: backend.php?controller=ProgramaController&action=index');
+      //header('Location: backend.php?controller=ProgramaController&action=index');
     }
     $error = 'este programa ya fue creado anteriormente';
-    return $this->render('programas/create', compact('error'));
+    //return $this->render('programas/create', compact('error'));
   }
   public function show($request){
     $id = $request['id'];

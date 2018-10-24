@@ -1,0 +1,23 @@
+h3 {
+  font-size:30px;
+  text-align:center;
+}
+
+table {
+    margin: 20px auto;
+}
+
+table a {
+    text-decoration: none;
+}
+
+table thead th, table tbody td {
+    border: 1px solid #ddd;
+    padding: 8px 30px; 
+
+}
+
+table thead th {
+    font-size: 20px;
+}
+table tbody tr a:hover { background-color: #f2f2f2; }

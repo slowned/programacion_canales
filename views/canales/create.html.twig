@@ -1,24 +1,62 @@
 
-  {%  if(error) %}
-
-  {{ error }}
-
-  {% endif %}
-
-  <form action="backend.php" name="canalForm" id="canalForm" method="post">
-    <input type="hidden" name="controller" value="CanalController"/>
-    <input type="hidden" name="action" value="store"/>
-
-    <h2>Crear nuevo Canal</h2>
-
-    <label for="name">Nuevo Canal</label>
-    <input type="text" name="nombre" id="canal" placeholder="Nombre:">
-
-    <label for="name">Nuevo Numero</label>
-    <input type="number" name="numero" id="numero" placeholder="Numero:">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operadora de TV</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/usuario_form.css">
+</head>
+<body>
 
 
-    <input type="submit" name="btn" id="btn" value="registrar">
+    <header>
+        <div class="logotipo">
+            <img src="imagenes/operadoranumero1.png" width="250" alt="">
+        </div>
+        <nav>
+          <ul>
+              <li><a href="backend.php?controller=BaseController&action=home">Home</a></li>
+            {% if(user) %}
+              <li>{{ user.nombreusuario }}</li>
+              <li><a href="backend.php?controller=SessionController&action=destroy">log out</a></li>
+            {% else %}
+              <li><a href="backend.php?controller=SessionController&action=create">iniciar Sesion</a></li>
+            {% endif %}
 
-  </form>
+          </ul>
+        </nav>
+    </header>
+    
+    <section class="main">
+        {%  if(error) %}
 
+        {{ error }}
+
+        {% endif %}
+
+        <form action="backend.php" name="canalForm" id="canalForm" method="post">
+          <input type="hidden" name="controller" value="CanalController"/>
+          <input type="hidden" name="action" value="store"/>
+
+          <h2>Crear nuevo Canal</h2>
+
+          <label for="name">Nuevo Canal</label>
+          <input type="text" name="nombre" id="canal" placeholder="Nombre:">
+
+          <label for="name">Nuevo Numero</label>
+          <input type="number" name="numero" id="numero" placeholder="Numero:">
+
+
+          <input type="submit" name="btn" id="btn" value="registrar">
+
+        </form>
+    </section>
+
+    
+    <footer>
+        <p>Autores: Otero Llambay Mariano, Isaac Garcia</p>
+    </footer>
+
+</body>
+</html>

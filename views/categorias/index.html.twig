@@ -1,12 +1,69 @@
-<h2>CATEGORIAS</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operadora de TV</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/listado.css">
+</head>
+<body>
 
-<ul>
-{% for c in categorias %}
-  <p>{{ c.nombre }}</p>
-  <a href='backend.php?controller=CategoriaController&action=destroy&id={{c.id}}'> eliminar </a>
-  <a href='backend.php?controller=CategoriaController&action=edit&id={{c.id}}'> editar </a>
-  <a href='backend.php?controller=CategoriaController&action=show&id={{c.id}}'> ver mas </a>
-{% endfor %}
-</ul>
 
-  <a href='backend.php?controller=CategoriaController&action=create'> agregar categoria </a>
+    <header>
+        <div class="logotipo">
+            <img src="imagenes/operadoranumero1.png" width="250" alt="">
+        </div>
+      <nav>
+        <ul>
+              <li class="nav_home"><a href="backend.php?controller=BaseController&action=home">Home</a></li>
+          {% if(user) %}
+            <li>{{ user.nombreusuario }}</li>
+            <li><a href="backend.php?controller=SessionController&action=destroy">log out</a></li>
+          {% else %}
+            <li><a href="backend.php?controller=SessionController&action=create">iniciar Sesion</a></li>
+          {% endif %}
+
+        </ul>
+      </nav>
+    </header>
+    
+    <section class="main">
+      <h3 class='center'>CATEGORIAS</h3>
+
+      <table class="table">
+        <thead>
+          <tr>
+              <th>categoria</th>
+              <th>accion</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for c in categorias %}
+            <tr>
+              <td> {{ c.nombre }}</td>
+              <td>
+                <a href='backend.php?controller=CategoriaController&action=destroy&id={{c.id}}'> eliminar </a> |
+                <a href='backend.php?controller=CategoriaController&action=edit&id={{c.id}}'> editar </a> |
+                <a href='backend.php?controller=CategoriaController&action=show&id={{c.id}}'> ver mas </a> 
+              </td>
+            </tr>
+          {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+
+
+
+
+
+
+
+
+    
+    <footer>
+        <p>Autores: Otero Llambay Mariano, Isaac Garcia</p>
+    </footer>
+
+</body>
+</html>
+

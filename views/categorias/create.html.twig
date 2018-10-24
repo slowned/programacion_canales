@@ -1,21 +1,48 @@
 
-  {%  if(error) %}
-
-  {{ error }}
-
-  {% endif %}
-
-  <form action="backend.php" name="categoriaForm" id="categoriaForm" method="post">
-    <input type="hidden" name="controller" value="CategoriaController"/>
-    <input type="hidden" name="action" value="store"/>
-
-    <h2>Crear nuevo categoria</h2>
-
-    <label for="name">Nueva Categoria</label>
-    <input type="text" name="categoria" id="categoria" placeholder="Categoria:">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operadora de TV</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/usuario_form.css">
+</head>
+<body>
 
 
-    <input type="submit" name="btn" id="btn" value="registrar">
+    <header>
+        <div class="logotipo">
+            <img src="imagenes/operadoranumero1.png" width="250" alt="">
+        </div>
+    </header>
+    
+    <section class="main">
+      {%  if(error) %}
 
-  </form>
+      {{ error }}
 
+      {% endif %}
+
+      <form action="backend.php" name="categoriaForm" id="categoriaForm" method="post">
+        <input type="hidden" name="controller" value="CategoriaController"/>
+        <input type="hidden" name="action" value="store"/>
+
+        <h2>Crear nuevo categoria</h2>
+
+        <label for="name">Nueva Categoria</label>
+        <input type="text" name="categoria" id="categoria" placeholder="Categoria:">
+
+
+        <input type="submit" name="btn" id="btn" value="registrar">
+
+      </form>
+
+    </section>
+
+    
+    <footer>
+        <p>Autores: Otero Llambay Mariano, Isaac Garcia</p>
+    </footer>
+
+</body>
+</html>

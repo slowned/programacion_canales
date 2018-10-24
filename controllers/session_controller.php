@@ -10,10 +10,12 @@ class SessionController extends BaseController
 		$username = $request['username'];
 		$password = $request['password'];
 
-		$user = Usuario::where(array(
-			'username' => $username,
-			'password' => $password,
-		));
+		//$user = Usuario::where(array(
+		//	'username' => $username,
+		//	'password' => $password,
+		//));
+
+    $user = Usuario::where(compact('username','password'));
 
 
 		if($user){

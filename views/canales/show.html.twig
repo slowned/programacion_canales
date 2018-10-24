@@ -1,3 +1,41 @@
-<p>{{ canal.nombre }}</p>
-<p>{{ canal.numero }}</p>
-<a href='backend.php?controller=CanalController&action=index'>Volver Atras</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operadora de TV</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css">
+</head>
+<body>
+
+
+    <header>
+        <div class="logotipo">
+            <img src="imagenes/operadoranumero1.png" width="250" alt="">
+        </div>
+        <nav>
+          <ul>
+              <li><a href="backend.php?controller=BaseController&action=home">Home</a></li>
+            {% if(user) %}
+              <li>{{ user.nombreusuario }}</li>
+              <li><a href="backend.php?controller=SessionController&action=destroy">log out</a></li>
+            {% else %}
+              <li><a href="backend.php?controller=SessionController&action=create">iniciar Sesion</a></li>
+            {% endif %}
+
+          </ul>
+        </nav>
+    </header>
+    
+    <section class="main">
+      <p>{{ canal.nombre }}</p>
+      <p>{{ canal.numero }}</p>
+      <a href='backend.php?controller=CanalController&action=index'>Volver Atras</a>
+    </section>
+
+    
+    <footer>
+        <p>Autores: Otero Llambay Mariano, Isaac Garcia</p>
+    </footer>
+
+</body>
+</html>

@@ -3,17 +3,9 @@
   padding:0;
 }
 
-
-body {
-  background:#e6e6e6;
+.nav_home {
+  text-align:left;
 }
-
-header ,form, table, footer, h3{
-  width:80%;
-  max-width:1000px;
-  margin:20px auto;
-}
-
 header nav {
   background:#528FD5;
   overflow:hidden;
@@ -35,6 +27,59 @@ header nav ul li a{
 }
 
 header nav ul li a:hover{
+  display: inline-block;
   background:#75ACEC;
 }
 
+body {
+  background-color:white;
+}
+
+
+header, .main, footer {
+  width:90%;
+  max-width:2000px;
+  margin:20px auto;
+}
+
+.logotipo {
+    background:lightblue;
+    text-align: center;
+}
+
+
+footer {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+
+/*
+ * Lo dejo como ejemplos
+ *
+    header nav {
+      background:#528FD5;
+      overflow:hidden;
+    }
+
+    header nav ul {
+      list-style:none;
+    }
+
+    header nav ul li {
+      float:right;
+    }
+
+    header nav ul li a{
+      padding:6px 15px;
+      display:block;
+      color:#FFF;
+      text-decoration:none;
+    }
+
+    header nav ul li a:hover{
+      background:#75ACEC;
+    }
+*/

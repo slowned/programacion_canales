@@ -1,16 +1,55 @@
-<form method='post' action='backend.php'>
-  <input type='hidden' name='controller' value='CanalController'/>
-  <input type='hidden' name='action' value='update'/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operadora de TV</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/usuario_form.css">
 
-  <label for='canal_numero'> Nombre del Canal</label>
-  <input type='text' name='canal' value='{{canal.nombre}}' required />
+</head>
+<body>
 
-  <label for='canal_numero'>Numero del canal</label>
-  <input type='text' name='numero' value='{{canal.numero}}'/>
 
-  <input type='hidden' name='id' value='{{canal.id}}'/>
+    <header>
+        <div class="logotipo">
+            <img src="imagenes/operadoranumero1.png" width="250" alt="">
+        </div>
+        <nav>
+          <ul>
+              <li><a href="backend.php?controller=BaseController&action=home">Home</a></li>
+            {% if(user) %}
+              <li>{{ user.nombreusuario }}</li>
+              <li><a href="backend.php?controller=SessionController&action=destroy">log out</a></li>
+            {% else %}
+              <li><a href="backend.php?controller=SessionController&action=create">iniciar Sesion</a></li>
+            {% endif %}
 
-  <input type='submit'/>
-</form>
+          </ul>
+        </nav>
+    </header>
+    
+    <section class="main">
+      <form method='post' action='backend.php'>
+        <input type='hidden' name='controller' value='CanalController'/>
+        <input type='hidden' name='action' value='update'/>
 
-<a href='backend.php?controller=CanalController&action=index'>Volver Atras</a>
+        <label for='canal_numero'> Nombre del Canal</label>
+        <input type='text' name='canal' value='{{canal.nombre}}' required />
+
+        <label for='canal_numero'>Numero del canal</label>
+        <input type='text' name='numero' value='{{canal.numero}}'/>
+
+        <input type='hidden' name='id' value='{{canal.id}}'/>
+
+        <input type='submit'/>
+      </form>
+
+    </section>
+
+    
+    <footer>
+        <p>Autores: Otero Llambay Mariano, Isaac Garcia</p>
+    </footer>
+
+</body>
+</html>

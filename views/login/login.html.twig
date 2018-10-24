@@ -1,19 +1,43 @@
-<div>
-  <link rel="stylesheet" type="text/css" href="../../assets/css/base.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/css/usuario_form.css">
-</div>
 
-{% if(error) %}
-  {{error}}
-{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operadora de TV</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/usuario_form.css">
+</head>
+<body>
 
-<form method='post' action='backend.php'>
-  <input type='hidden' name='controller' value='SessionController'/>
-  <input type='hidden' name='action' value='store'/>
 
-  <label for="username">Nombre de Usuario</label>
-  <input type='text' name='username' placeholder='Nombre de Usuario:' required />
-  <label for="password">Contrasenia</label>
-  <input type='password' name='password' required />
-  <input type='submit' value='Entrar'/>
-</form>
+    <header>
+        <div class="logotipo">
+            <img src="imagenes/operadoranumero1.png" width="250" alt="">
+        </div>
+    </header>
+    
+    <section class="main">
+      {% if(error) %}
+        {{error}}
+      {% endif %}
+
+      <form method='post' action='backend.php'>
+        <input type='hidden' name='controller' value='SessionController'/>
+        <input type='hidden' name='action' value='store'/>
+
+        <label for="username">Nombre de Usuario</label>
+        <input type='text' name='username' placeholder='Nombre de Usuario:' required />
+        <label for="password">Contrasenia</label>
+        <input type='password' name='password' required />
+        <input type='submit' value='Entrar'/>
+      </form>
+
+    </section>
+
+    
+    <footer>
+        <p>Autores: Otero Llambay Mariano, Isaac Garcia</p>
+    </footer>
+
+</body>
+</html>

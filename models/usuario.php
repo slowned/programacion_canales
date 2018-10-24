@@ -25,7 +25,7 @@ class Usuario{
 
   static function where($params){
     $pdo = new PDO('mysql:host=localhost;dbname=canales', 'admin', 'a.s');
-    $query = $pdo->prepare("SELECT * FROM usuario u WHERE u.nombreusuario =s :username AND clave = :password");
+    $query = $pdo->prepare("SELECT * FROM usuario WHERE nombreusuario = :username AND clave = :password");
     $query->execute($params);
     return $query->fetch(PDO::FETCH_ASSOC);
   }

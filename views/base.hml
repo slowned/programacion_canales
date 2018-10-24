@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>Operadora de TV</title>
     <link rel="stylesheet" type="text/css" href="assets/css/base.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/listado.css">
 </head>
 <body>
+
 
     <header>
         <div class="logotipo">
@@ -25,37 +25,10 @@
           </ul>
         </nav>
     </header>
-
-
     
     <section class="main">
-      <h3 class="center">CANALES</h3>
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Numero</th>
-            <th>Accion</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for c in canales %}
-            <tr>
-              <td> {{c.nombre}}</td>
-              <td> {{c.numero}}</td>
-              <td>
-              <a href='backend.php?controller=CanalController&action=destroy&id={{c.id}}'> eliminar </a> |
-              <a href='backend.php?controller=CanalController&action=edit&id={{c.id}}'> editar </a> |
-              <a href='backend.php?controller=CanalController&action=show&id={{c.id}}'> ver mas </a>
-              </td>
-            </tr>
-          {% endfor %}
-        </tbody>
-
     </section>
 
-      <a href='backend.php?controller=CanalController&action=create'> agregar canal </a>
     
     <footer>
         <p>Autores: Otero Llambay Mariano, Isaac Garcia</p>

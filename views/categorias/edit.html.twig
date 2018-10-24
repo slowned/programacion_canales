@@ -1,14 +1,52 @@
-<form method='post' action='backend.php'>
-  <input type='hidden' name='controller' value='CategoriaController'/>
-  <input type='hidden' name='action' value='update'/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operadora de TV</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/usuario_form.css">
+</head>
+<body>
 
-  <h2>Editar Categoria</h2>
-  <label for='categoria_nombre'> Nombre de la categoria</label>
-  <input type='text' name='categoria' value='{{categoria.nombre}}' required />
 
-  <input type='hidden' name='id' value='{{categoria.id}}'/>
+    <header>
+        <div class="logotipo">
+            <img src="imagenes/operadoranumero1.png" width="250" alt="">
+        </div>
+        <nav>
+          <ul>
+              <li><a href="backend.php?controller=BaseController&action=home">Home</a></li>
+            {% if(user) %}
+              <li>{{ user.nombreusuario }}</li>
+              <li><a href="backend.php?controller=SessionController&action=destroy">log out</a></li>
+            {% else %}
+              <li><a href="backend.php?controller=SessionController&action=create">iniciar Sesion</a></li>
+            {% endif %}
 
-  <input type='submit'/>
-</form>
+          </ul>
+        </nav>
+    </header>
+    
+    <section class="main">
+      <form method='post' action='backend.php'>
+        <input type='hidden' name='controller' value='CategoriaController'/>
+        <input type='hidden' name='action' value='update'/>
 
-<a href='backend.php?controller=CategoriaController&action=index'>Volver Atras</a>
+        <h2>Editar Categoria</h2>
+        <label for='categoria_nombre'> Nombre de la categoria</label>
+        <input type='text' name='categoria' value='{{categoria.nombre}}' required />
+
+        <input type='hidden' name='id' value='{{categoria.id}}'/>
+
+        <input type='submit'/>
+      </form>
+
+    </section>
+
+    
+    <footer>
+        <p>Autores: Otero Llambay Mariano, Isaac Garcia</p>
+    </footer>
+
+</body>
+</html>

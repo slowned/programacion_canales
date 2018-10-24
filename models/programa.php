@@ -13,7 +13,7 @@ class Programa{
     $query = $pdo->prepare(
       "INSERT INTO programa(nombre, descripcion, fecha, horainicio,
                             duracion, categoriaprograma_id, canal_id)
-       VALUES(:nombre, :descripcion, :fecha, :horainicio,
+       VALUES(:nombre, :descripcion, :fecha, :hora_inicio,
                :duracion, :categoria_id, :canal_id)"
     );
     $query->execute($params);

@@ -1,0 +1,90 @@
+* {
+  margin:0;
+  padding:0;
+}
+
+
+body {
+  background-color:white;
+}
+
+
+header, .main, footer {
+  width:90%;
+  max-width:2000px;
+  margin:20px auto;
+}
+
+.logotipo {
+    background:lightblue|;
+    text-align: center;
+}
+
+table {
+    margin: 20px auto;
+}
+
+.filtro {
+    text-align: center;
+}
+table a {
+    text-decoration: none;
+}
+
+form select {
+    padding: 0px 10px;
+}
+
+table thead th, table tbody td {
+    border: 1px solid #ddd;
+    padding: 8px 30px; 
+
+}
+
+table {
+    border: 1px solid #ddd;
+    padding: 8px 30px; 
+}
+
+table thead th {
+    font-size: 20px;
+    text-align: left;
+}
+
+table tbody tr:hover { background-color: #f2f2f2; }
+
+footer {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+
+/*
+ * Lo dejo como ejemplos
+ *
+    header nav {
+      background:#528FD5;
+      overflow:hidden;
+    }
+
+    header nav ul {
+      list-style:none;
+    }
+
+    header nav ul li {
+      float:right;
+    }
+
+    header nav ul li a{
+      padding:6px 15px;
+      display:block;
+      color:#FFF;
+      text-decoration:none;
+    }
+
+    header nav ul li a:hover{
+      background:#75ACEC;
+    }
+*/

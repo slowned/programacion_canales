@@ -1,17 +1,65 @@
-<p>ESTAS EN EL HOME</p>
-<nav>
-  <ul>
-    {% if(user) %}
-      <li><a href="backend.php?controller=UserController&action=show&id={{ user.id }}">{{ user.nombre }}</a></li>
-      <li><a href="backend.php?controller=SessionController&action=destroy">log out</a></li>
-      <li><a href="backend.php?controller=SessionController&action=destroy">log out</a></li>
-      <li><a href="backend.php?controller=ProgramaController&action=create">Crear Programa</a></li>
-      <li><a href="backend.php?controller=CanalController&action=create">Crear Canal</a></li>
-      <li><a href="backend.php?controller=CategoriaController&action=create">Crear Categoria</a></li>
-    {% else %}
-      <li><a href="backend.php?controller=SessionController&action=create">iniciar Sesion</a></li>
-    {% endif %}
 
-  </ul>
-</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operadora de TV</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/backend_home.css">
+</head>
+<body>
 
+
+    <header>
+        <div class="logotipo">
+            <img src="imagenes/operadoranumero1.png" width="250" alt="">
+        </div>
+        <nav>
+          <ul>
+              <li class="nav_home"><a href="backend.php?controller=BaseController&action=home">Home</a></li>
+            {% if(user) %}
+              <li>{{ user.nombreusuario }}</li>
+              <li><a href="backend.php?controller=SessionController&action=destroy">log out</a></li>
+            {% else %}
+              <li><a href="backend.php?controller=SessionController&action=create">iniciar Sesion</a></li>
+            {% endif %}
+
+          </ul>
+        </nav>
+    </header>
+
+    <section class="main">
+      <div class="center">
+        <nav class="contenedor">
+          <h3>Programas</h3>
+          <ul>
+              <li><a href="backend.php?controller=ProgramaController&action=create">Crear Programa</a></li>
+              <li><a href="backend.php?controller=ProgramaController&action=index">Listar Programas</a></li>
+          </ul>
+        </nav>
+
+        <nav class="contenedor">
+          <h3>Canales</h3>
+          <ul>
+              <li><a href="backend.php?controller=CanalController&action=create">Crear Programa</a></li>
+              <li><a href="backend.php?controller=CanalController&action=index">Listar Programas</a></li>
+          </ul>
+        </nav>
+        <nav class="contenedor">
+          <h3>Categorias</h3>
+          <ul>
+              <li><a href="backend.php?controller=CategoriaController&action=create">Crear Categoria</a></li>
+              <li><a href="backend.php?controller=CategoriaController&action=index">Listar Categoria</a></li>
+          </ul>
+        </nav>
+      </div>
+      
+    </section>
+
+    
+    <footer>
+        <p>Autores: Otero Llambay Mariano, Isaac Garcia</p>
+    </footer>
+
+</body>
+</html>

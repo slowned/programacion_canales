@@ -27,6 +27,8 @@ class UserController extends BaseController{
     return $this->render('usuarios/show', compact('usuario'));
   }
 
+  
+
     public function edit($request){}
     public function update($request){}
     public function destroy($request){}
