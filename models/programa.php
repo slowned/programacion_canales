@@ -68,7 +68,20 @@ class Programa{
     $query = $pdo->prepare("SELECT * FROM programa WHERE fecha  = :fecha");
     $query->execute($params);
     return $query->fetchAll(PDO::FETCH_ASSOC);
+  }
 
+  static function buscarPorFechaYCategoria($params){
+		$pdo = new PDO('mysql:host=localhost;dbname=canales', 'admin', 'a.s');
+    $query = $pdo->prepare("SELECT * FROM programa WHERE fecha  = :fecha AND categoriaprograma_id = :categoria_id");
+    $query->execute($params);
+    return $query->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  static function buscarCategoria($params){
+		$pdo = new PDO('mysql:host=localhost;dbname=canales', 'admin', 'a.s');
+    $query = $pdo->prepare("SELECT * FROM programa WHERE categoriaprograma_id = :categoria_id");
+    $query->execute($params);
+    return $query->fetchAll(PDO::FETCH_ASSOC);
   }
 }
 ?>

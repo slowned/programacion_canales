@@ -10,6 +10,7 @@ define('__ROOT__', __DIR__);
 require __ROOT__ . '/config.php';
 
 session_start();
+setcookie("cookie_fecha");
 // example request:
 
 // http://localhost/index.php?controller=ProgramaController&index

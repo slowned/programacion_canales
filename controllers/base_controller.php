@@ -1,3 +1,4 @@
+M
 <?php
 class BaseController {
 
@@ -18,8 +19,11 @@ class BaseController {
 
 	public function index($request) {
         $fecha = '2018-11-11';
+        setcookie("cookie_fecha",$fecha);
+        $fecha_cookie = ($_COOKIE["cookie_fecha"]);
+        $categorias = Categoria::all();
         $programas = Programa::buscarPorFecha(compact('fecha'));
-        return $this->render('home/index', compact('programas', 'fecha'));
+        return $this->render('home/index', compact('programas', 'fecha','categorias'));
 	}
 
   public function login($request){
@@ -33,15 +37,16 @@ class BaseController {
 
   public function indexPorFecha($request) {
     $fecha = $request['fecha'];
+    $categorias = Categoria::all();
     if(!empty($fecha)){
-      $fecha = date("Y-m-d", strtotime($_POST['fecha']));
+      $fecha = date("Y-m-d", strtotime($fecha));
       $programas = Programa::buscarPorFecha(compact('fecha'));
       if(isset($programas)){
-        return $this->render('/home/index', compact('programas', 'fecha'));}  
+        return $this->render('/home/index', compact('programas', 'fecha', 'categorias'));}  
     } else {
         $error = "No hay programacion para ese dia";
         $programas = Programa::all();
-        return $this->render('home/index', compact('programas','error','fecha'));
+        return $this->render('home/index', compact('programas','error','fecha', 'categorias'));
     }
   }
 

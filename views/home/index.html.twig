@@ -69,6 +69,12 @@
           <h2>BUSCAR PROGRAMAS POR FECHA</h2>
           <label for="name">Nueva Categoria</label>
           <input type="date" name="fecha" id="fecha"></input>
+          <label for='idCategoria'> Categoria </label>
+          <select name='idCategoria'>
+            {% for categoria in categorias %}
+            <option value='{{categoria.id}}'> {{categoria.nombre}} </option>
+            {% endfor %}
+          </select>
           <input type="submit" name="btn" id="btn" value="registrar">
         </form>
       </div>
