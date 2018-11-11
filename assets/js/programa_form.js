@@ -45,28 +45,23 @@ var validarForm = function(e) {
    d = validarHora(e);
    e = validarDuracion(e);
   if (a == false){
-  alert("entro en el if A");
-    e.preventDefault();
+    event.preventDefault();
     return false
   }
   if (b == false){
-  alert("entro en el if B");
-    e.preventDefault();
+    event.preventDefault();
     return false
   }
   if (c == false){
-  alert("entro en el if C");
-    e.preventDefault();
+    event.preventDefault();
     return false
   }
   if (d == false){
-  alert("entro en el if D");
-    e.preventDefault();
+    event.preventDefault();
     return false
   }
   if (e == false){
-  alert("entro en el if E");
-    e.preventDefault();
+    event.preventDefault();
     return false;
   }
 }
