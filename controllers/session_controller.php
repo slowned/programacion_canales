@@ -10,21 +10,35 @@ class SessionController extends BaseController
 		$username = $request['username'];
 		$password = $request['password'];
 
-		//$user = Usuario::where(array(
-		//	'username' => $username,
-		//	'password' => $password,
-		//));
-
-    $user = Usuario::where(compact('username','password'));
-
-
-		if($user){
-            $_SESSION['user'] = $user;
-    } else {
-        $error = 'usuario o contrasenia invalida';
+    try {
+      if(isset($username) && isset($password)){
+        $user = Usuario::where(compact('username','password'));
+        if($user){
+                $_SESSION['user'] = $user;
+        } else {
+           throw new Exception('usuario o contrasenia invalida');
+        }
+        header('Location: backend.php?controller=BaseController&action=backend');
+          }
+    } catch (Exeption $e)  {
+        $error = $e->getMessage();
+         echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+    } finally {
         return $this->render('login/login', compact('error'));
-    }
-		header('Location: backend.php?controller=BaseController&action=backend');
+    } 
+
+
+
+    # $user = Usuario::where(compact('username','password'));
+
+
+		# if($user){
+    #         $_SESSION['user'] = $user;
+    # } else {
+    #     $error = 'usuario o contrasenia invalida';
+    #     return $this->render('login/login', compact('error'));
+    # }
+		# header('Location: backend.php?controller=BaseController&action=backend');
 	}
 
 
