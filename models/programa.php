@@ -62,5 +62,13 @@ class Programa{
   static function findByNumber($params){
 		$pdo = new PDO('mysql:host=localhost;dbname=canales', 'admin', 'a.s');
   }
+
+  static function buscarPorFecha($params){
+		$pdo = new PDO('mysql:host=localhost;dbname=canales', 'admin', 'a.s');
+    $query = $pdo->prepare("SELECT * FROM programa WHERE fecha  = :fecha");
+    $query->execute($params);
+    return $query->fetchAll(PDO::FETCH_ASSOC);
+
+  }
 }
 ?>

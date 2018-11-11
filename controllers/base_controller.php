@@ -16,19 +16,34 @@ class BaseController {
 		return $this->twig->render($view.'.html.twig', $vars);
 	}
 
-	public function index($params) {
+	public function index($request) {
         $programas = Programa::all();
         return $this->render('home/index', compact('programas'));
 	}
 
-  public function login($params){
+  public function login($request){
       return $this->render('login/login');
   }
 
-  public function backend($params){
+  public function backend($request){
     $user = $_SESSION['user'];
     return $this->render('home/home',compact('user'));
   }
 
+  public function indexPorFecha($request) {
+    $fecha = $request['fecha'];
+    if(!empty($fecha)){
+      $fecha = date("Y-m-d", strtotime($_POST['fecha']));
+      $programas = Programa::buscarPorFecha(compact('fecha'));
+      if(isset($programas)){
+        return $this->render('/home/index', compact('programas'));
+      }  
+    } else {
+        $error = "No hay programacion para ese dia";
+        $programas = Programa::all();
+        return $this->render('home/index', compact('programas','error'));
+    }
+
+  }
 }
 ?>

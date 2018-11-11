@@ -18,11 +18,17 @@
         <nav>
           <ul>
               <li><a href="backend.php?controller=SessionController&action=create">iniciar Sesion</a></li>
+              <li><a href="backend.php?controller=SessionController&action=index">HOME</a></li>
           </ul>
         </nav>
     </header>
 
     <section class="main">
+      <div class="error">
+        {% if(error) %}
+        <span>{{error}}</span>
+        {% endif %}
+      </div>
       <div class="center">
         <h3 class="center">Programacion Diaria</h3>
         <table class="table">
@@ -49,6 +55,14 @@
             {% endfor %}
           </tbody>
         </table>
+        <form action="index.php" name="busquedaPorFecha" id="busquedaPorFecha" method="post">
+          <input type="hidden" name="controller" value="BaseController"/>
+          <input type="hidden" name="action" value="indexPorFecha"/>
+          <h2>BUSCAR PROGRAMAS POR FECHA</h2>
+          <label for="name">Nueva Categoria</label>
+          <input type="date" name="fecha" id="fecha"></input>
+          <input type="submit" name="btn" id="btn" value="registrar">
+        </form>
       </div>
     </section>
 
