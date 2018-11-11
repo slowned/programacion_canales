@@ -16,7 +16,7 @@
         </div>
         <nav>
           <ul>
-              <li><a href="backend.php?controller=BaseController&action=home">Home</a></li>
+              <li><a href="backend.php?controller=BaseController&action=backend">Home</a></li>
             {% if(user) %}
               <li>{{ user.nombreusuario }}</li>
               <li><a href="backend.php?controller=SessionController&action=destroy">log out</a></li>
@@ -29,19 +29,25 @@
     </header>
     
     <section class="main">
+        {%  if(error) %}
+          {{ error }}
+        {% endif %}
+
       <form method='post' action='backend.php'>
         <input type='hidden' name='controller' value='CanalController'/>
         <input type='hidden' name='action' value='update'/>
 
+          <h2>Editar Canal</h2>
+
         <label for='canal_numero'> Nombre del Canal</label>
-        <input type='text' name='canal' value='{{canal.nombre}}' required />
+        <input type='text' name='canal' id='canal' value='{{canal.nombre}}'  />
 
         <label for='canal_numero'>Numero del canal</label>
-        <input type='text' name='numero' value='{{canal.numero}}'/>
+        <input type='text' name='numero' id='numero' value='{{canal.numero}}'/>
 
-        <input type='hidden' name='id' value='{{canal.id}}'/>
+        <input type='hidden' name='id'  value='{{canal.id}}'/>
 
-        <input type='submit'/>
+        <input type='submit' id='btn'/>
       </form>
 
     </section>
@@ -50,6 +56,7 @@
     <footer>
         <p>Autores: Otero Llambay Mariano, Isaac Garcia</p>
     </footer>
+<script src="assets/js/canal_form.js"></script>
 
 </body>
 </html>

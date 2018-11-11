@@ -17,15 +17,15 @@ class BaseController {
 	}
 
 	public function index($params) {
-        $user = $_SESSION['user'];
-        return $this->render('home', compact('libros', 'user'));
+        $programas = Programa::all();
+        return $this->render('home/index', compact('programas'));
 	}
 
-  public function backend($params){
+  public function login($params){
       return $this->render('login/login');
   }
 
-  public function home($params){
+  public function backend($params){
     $user = $_SESSION['user'];
     return $this->render('home/home',compact('user'));
   }

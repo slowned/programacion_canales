@@ -42,7 +42,7 @@ class Canal{
 
   }
   static function findByNumber($params){
-		$pdo = new PDO('mysql:host=localhost;dbname=canales', 'admin', 'a.s');
+    $pdo = conectar();
   }
 }
 ?>

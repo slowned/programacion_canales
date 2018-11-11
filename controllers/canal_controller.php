@@ -3,11 +3,23 @@
 class CanalController extends BaseController {
   public function index($request){
     $canales = Canal::all();
-    return $this->render('canales/index', compact("canales"));
+    $user = $_SESSION['user'];
+		if(isset($user)){
+      return $this->render('canales/index', compact("canales", "user"));
+    } else {
+        $error = 'usuario o contrasenia invalida';
+        return $this->render('login/login', compact('error'));
+    }
   }
 
   public function create($request){
-    return $this->render('canales/create');
+    $user = $_SESSION['user'];
+		if(isset($user)){
+      return $this->render('canales/create', compact("user"));
+    } else {
+        $error = 'usuario o contrasenia invalida';
+        return $this->render('login/login', compact('error'));
+    }
   }
 
   public function store($request){
@@ -24,13 +36,25 @@ class CanalController extends BaseController {
   public function show($request){
     $id = $request['id'];
     $canal = Canal::findById(compact('id'));
-    return $this->render('canales/show', compact("canal"));
+    $user = $_SESSION['user'];
+		if(isset($user)){
+      return $this->render('canales/show', compact("canal", "user"));
+    } else {
+        $error = 'usuario o contrasenia invalida';
+        return $this->render('login/login', compact('error'));
+    }
   }
 
   public function edit($request){
     $id = $request['id'];
     $canal = Canal::findById(compact('id'));
-    return $this->render('canales/edit', compact("canal"));
+    $user = $_SESSION['user'];
+		if(isset($user)){
+      return $this->render('canales/edit', compact("canal", "user"));
+    } else {
+        $error = 'usuario o contrasenia invalida';
+        return $this->render('login/login', compact('error'));
+    }
 
 
   }
@@ -45,8 +69,14 @@ class CanalController extends BaseController {
 
   public function destroy($request){
     $canal_id = $request['id'];
-    Canal::destroy(compact("canal_id"));
-    header('Location: backend.php?controller=CanalController&action=index');
+    $user = $_SESSION['user'];
+		if(isset($user)){
+      Canal::destroy(compact("canal_id"));
+      header('Location: backend.php?controller=CanalController&action=index');
+    } else {
+        $error = 'usuario o contrasenia invalida';
+        return $this->render('login/login', compact('error'));
+    }
   }
 
 

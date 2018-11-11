@@ -14,22 +14,19 @@
         </div>
         <nav>
           <ul>
-              <li><a href="backend.php?controller=BaseController&action=backend">Home</a></li>
-            {% if(user) %}
-              <li>{{ user.nombreusuario }}</li>
-              <li><a href="backend.php?controller=SessionController&action=destroy">log out</a></li>
-            {% else %}
+              <li><a href="index.php?controller=BaseController&action=index">Home</a></li>
               <li><a href="backend.php?controller=SessionController&action=create">iniciar Sesion</a></li>
-            {% endif %}
 
           </ul>
         </nav>
     </header>
     
     <section class="main">
+      <p>{{ programa.nombre }}</p>
+      <p>{{ programa.descripcion }}</p>
       <p>{{ canal.nombre }}</p>
-      <p>{{ canal.numero }}</p>
-      <a href='backend.php?controller=CanalController&action=index'>Volver Atras</a>
+      <p>{{ categoria.nombre }}</p>
+
     </section>
 
     

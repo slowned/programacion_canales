@@ -15,7 +15,7 @@
         </div>
         <nav>
           <ul>
-              <li><a href="backend.php?controller=BaseController&action=home">Home</a></li>
+              <li><a href="backend.php?controller=BaseController&action=backend">Home</a></li>
             {% if(user) %}
               <li>{{ user.nombreusuario }}</li>
               <li><a href="backend.php?controller=SessionController&action=destroy">log out</a></li>
@@ -34,11 +34,11 @@
 
         <h2>Editar Categoria</h2>
         <label for='categoria_nombre'> Nombre de la categoria</label>
-        <input type='text' name='categoria' value='{{categoria.nombre}}' required />
+        <input type='text' name='categoria' id="categoria" value='{{categoria.nombre}}' required />
 
         <input type='hidden' name='id' value='{{categoria.id}}'/>
 
-        <input type='submit'/>
+        <input type='submit' id="btn"/>
       </form>
 
     </section>
@@ -47,6 +47,7 @@
     <footer>
         <p>Autores: Otero Llambay Mariano, Isaac Garcia</p>
     </footer>
+<script src="assets/js/categoria_form.js"></script>
 
 </body>
 </html>

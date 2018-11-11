@@ -1,46 +1,85 @@
-  {%  if(error) %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/usuario_form.css">
+</head>
+<body>
+  
+    <header>
+        <div class="logotipo">
+            <img src="imagenes/operadoranumero1.png" width="250" alt="">
+        </div>
+        <nav>
+          <ul>
+              <li><a href="backend.php?controller=BaseController&action=backend">Home</a></li>
+            {% if(user) %}
+              <li>{{ user.nombreusuario }}</li>
+              <li><a href="backend.php?controller=SessionController&action=destroy">log out</a></li>
+            {% else %}
+              <li><a href="backend.php?controller=SessionController&action=create">iniciar Sesion</a></li>
+            {% endif %}
 
-  {{ error }}
+          </ul>
+        </nav>
+    </header>
+    <section class="main">
 
-  {% endif %}
+    {%  if(error) %}
 
-  <form action="backend.php" name="programaForm" id="programaForm" method="post">
-    <input type="hidden" name="controller" value="ProgramaController"/>
-    <input type="hidden" name="action" value="store"/>
+    {{ error }}
 
-    <h2>Crear nuevo Programa</h2>
+    {% endif %}
 
-    <label for="name"> Programa</label>
-    <input type="text" name="programa" id="programa" placeholder="Programa:">
+    <form action="backend.php" name="programaForm" id="programaForm" method="post">
+      <input type="hidden" name="controller" value="ProgramaController"/>
+      <input type="hidden" name="action" value="store"/>
 
-    <label for='idCanal'> Canal </label>
-    <select name='idCanal'>
-      {% for canal in canales %}
-        <option value='{{canal.id}}'> {{canal.nombre}} </option>
-      {% endfor %}
-    </select>
+      <h2>Crear nuevo Programa</h2>
+
+      <label for="name"> Programa</label>
+      <input type="text" name="programa" id="programa" placeholder="Programa:">
+
+      <label for='idCanal'> Canal </label>
+      <select name='idCanal'>
+        {% for canal in canales %}
+          <option value='{{canal.id}}'> {{canal.nombre}} </option>
+        {% endfor %}
+      </select>
 
 
-    <label for='idCategoria'> Categoria </label>
-    <select name='idCategoria'>
-      {% for categoria in categorias %}
-        <option value='{{categoria.id}}'> {{categoria.nombre}} </option>
-      {% endfor %}
-    </select>
+      <label for='idCategoria'> Categoria </label>
+      <select name='idCategoria'>
+        {% for categoria in categorias %}
+          <option value='{{categoria.id}}'> {{categoria.nombre}} </option>
+        {% endfor %}
+      </select>
 
-    <label for="descripcion"> Descripcion</label>
-    <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion:">
+      <label for="descripcion"> Descripcion</label>
+      <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion:">
 
-    <label for="fecha"> Dia de emision</label>
-    <input type="date" name="fecha" id="fecha" required pattern="[0-9]{4}/[0-9]{2}/[0-9]{2}"></input>
+      <label for="fecha"> Dia de emision</label>
+      <input type="date" name="fecha" id="fecha" pattern="[0-9]{4}/[0-9]{2}/[0-9]{2}"></input>
 
-    <label for="hora_inicio"> Hora de inicio</label>
-    <input type="time" name="hora_inicio" id="hora_inicio"></input>
+      <label for="hora_inicio"> Hora de inicio</label>
+      <input type="time" name="hora_inicio" id="hora_inicio"></input>
 
-    <label for="duracion"> Duracion</label>
-    <input type="number" name="duracion" id="duracion"></input>
+      <label for="duracion"> Duracion</label>
+      <input type="number" name="duracion" id="duracion"></input>
 
-    <input type="submit" name="btn" id="btn" value="registrar">
+      <input type="submit" name="btn" id="btn" value="registrar">
 
-  </form>
+    </form>
 
+    </section>
+
+    <script src="assets/js/programa_form.js"></script>
+</body>
+
+
+    <footer>
+        <p>Autores: Otero Llambay Mariano, Isaac Garcia</p>
+    </footer>
+</html>

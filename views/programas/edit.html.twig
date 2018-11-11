@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Operadora de TV</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/usuario_form.css">
+</head>
+<body>
+    <header>
+        <div class="logotipo">
+            <img src="imagenes/operadoranumero1.png" width="250" alt="">
+        </div>
+        <nav>
+          <ul>
+              <li><a href="backend.php?controller=BaseController&action=backend">Home</a></li>
+            {% if(user) %}
+              <li>{{ user.nombreusuario }}</li>
+              <li><a href="backend.php?controller=SessionController&action=destroy">log out</a></li>
+            {% else %}
+              <li><a href="backend.php?controller=SessionController&action=create">iniciar Sesion</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+    </header>
+    <section class="main">
+      {%  if(error) %}
+        {{ error }}
+      {% endif %}
+      <form method='post' action='backend.php'>
+        <input type='hidden' name='controller' value='ProgramaController'/>
+        <input type='hidden' name='action' value='update'/>
+        <h2>Editar Programa</h2>
+        <label for="name"> Programa</label>
+        <input type="text" name="programa" id="programa" value="{{programa.nombre}}">
+        <label for='idCanal'> {{canal.nombre}} </label>
+        <select name='idCanal'>
+          {% for canal in canales %}
+            <option value='{{canal.id}}'> {{canal.nombre}} </option>
+          {% endfor %}
+        </select>
+        <label for='idCategoria'> {{categoria.nombre}} </label>
+        <select name='idCategoria'>
+          {% for categoria in categorias %}
+            <option value='{{categoria.id}}'> {{categoria.nombre}} </option>
+          {% endfor %}
+        </select>
+        <label for="descripcion"> Descripcion</label>
+        <input type="text" name="descripcion" id="descripcion" value="{{programa.descripcion}}">
+        <label for="fecha"> Dia de emision</label>
+        <input type="date" name="fecha" id="fecha" value="{{programa.fecha}}"></input>
+        <label for="hora_inicio"> Hora de inicio</label>
+        <input type="time" name="hora_inicio" id="hora_inicio" value="{{programa.horainicio}}"></input>
+        <label for="duracion"> Duracion</label>
+        <input type="number" name="duracion" id="duracion" value="{{programa.duracion}}"></input>
+        <input type='hidden' name='programa_id' value='{{programa.id}}'/>
+        <input type="submit" name="btn" id="btn" value="Cambiar">
+      </form>
+    </section>
+</body>
+    <footer>
+        <p>Autores: Otero Llambay Mariano, Isaac Garcia</p>
+    </footer>
+</html>

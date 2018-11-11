@@ -7,14 +7,13 @@
     <link rel="stylesheet" type="text/css" href="assets/css/listado.css">
 </head>
 <body>
-
     <header>
         <div class="logotipo">
             <img src="imagenes/operadoranumero1.png" width="250" alt="">
         </div>
         <nav>
           <ul>
-              <li><a href="backend.php?controller=BaseController&action=home">Home</a></li>
+              <li><a href="backend.php?controller=BaseController&action=backend">Home</a></li>
             {% if(user) %}
               <li>{{ user.nombreusuario }}</li>
               <li><a href="backend.php?controller=SessionController&action=destroy">log out</a></li>
@@ -25,9 +24,6 @@
           </ul>
         </nav>
     </header>
-
-
-    
     <section class="main">
       <h3 class="center">CANALES</h3>
 
@@ -46,20 +42,16 @@
               <td> {{c.numero}}</td>
               <td>
               <a href='backend.php?controller=CanalController&action=destroy&id={{c.id}}'> eliminar </a> |
-              <a href='backend.php?controller=CanalController&action=edit&id={{c.id}}'> editar </a> |
-              <a href='backend.php?controller=CanalController&action=show&id={{c.id}}'> ver mas </a>
+              <a href='backend.php?controller=CanalController&action=edit&id={{c.id}}'> editar </a> 
               </td>
             </tr>
           {% endfor %}
         </tbody>
+      </table>
 
     </section>
-
-      <a href='backend.php?controller=CanalController&action=create'> agregar canal </a>
-    
     <footer>
         <p>Autores: Otero Llambay Mariano, Isaac Garcia</p>
     </footer>
-
 </body>
 </html>

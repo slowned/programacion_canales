@@ -20,7 +20,7 @@ if (isset($_REQUEST["controller"])&(isset($_REQUEST["action"])))
 	// echo (new ProgramaController())->index($_REQUEST);
 } else {
   $controller = new BaseController();
-  echo $controller->backend($_REQUEST);
+  echo $controller->login($_REQUEST);
    // echo (new BaseController)->index($_REQUEST);
 }
 

@@ -24,7 +24,7 @@ class SessionController extends BaseController
         $error = 'usuario o contrasenia invalida';
         return $this->render('login/login', compact('error'));
     }
-		header('Location: backend.php?controller=BaseController&action=home');
+		header('Location: backend.php?controller=BaseController&action=backend');
 	}
 
 

@@ -16,32 +16,29 @@
         </div>
         <nav>
           <ul>
-              <li><a href="backend.php?controller=BaseController&action=home">Home</a></li>
+              <li><a href="backend.php?controller=BaseController&action=backend">Home</a></li>
             {% if(user) %}
               <li>{{ user.nombreusuario }}</li>
               <li><a href="backend.php?controller=SessionController&action=destroy">log out</a></li>
             {% else %}
               <li><a href="backend.php?controller=SessionController&action=create">iniciar Sesion</a></li>
             {% endif %}
-
           </ul>
         </nav>
     </header>
     
     <section class="main">
         {%  if(error) %}
-
-        {{ error }}
-
+          {{ error }}
         {% endif %}
 
-        <form action="backend.php" name="canalForm" id="canalForm" method="post">
+        <form action="backend.php" name="canalForm" id="canalForm" method="post" >
           <input type="hidden" name="controller" value="CanalController"/>
           <input type="hidden" name="action" value="store"/>
 
           <h2>Crear nuevo Canal</h2>
 
-          <label for="name">Nuevo Canal</label>
+          <label  id="campoCanal" for="canal">Nuevo Canal</label>
           <input type="text" name="nombre" id="canal" placeholder="Nombre:">
 
           <label for="name">Nuevo Numero</label>
@@ -53,10 +50,11 @@
         </form>
     </section>
 
-    
+
     <footer>
         <p>Autores: Otero Llambay Mariano, Isaac Garcia</p>
     </footer>
+<script src="assets/js/canal_form.js"></script>
 
 </body>
 </html>

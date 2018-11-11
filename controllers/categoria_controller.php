@@ -3,12 +3,26 @@
 class CategoriaController extends BaseController {
   public function index($request){
     $categorias = Categoria::all();
-    return $this->render('categorias/index', compact("categorias"));
+    $user = $_SESSION['user'];
+		if(isset($user)){
+      return $this->render('categorias/index', compact("categorias", "user"));
+    } else {
+        $error = 'usuario o contrasenia invalida';
+        return $this->render('login/login', compact('error'));
+    }
   }
 
+
   public function create($request){
-    return $this->render('categorias/create');
+    $user = $_SESSION['user'];
+		if(isset($user)){
+      return $this->render('categorias/create', compact("user"));
+    } else {
+        $error = 'usuario o contrasenia invalida';
+        return $this->render('login/login', compact('error'));
+    }
   }
+
 
   public function store($request){
     $categoria = $request['categoria'];
@@ -19,15 +33,29 @@ class CategoriaController extends BaseController {
     $error = 'esta categoria ya fue creada anteriormente';
     return $this->render('categorias/create', compact('error'));
   }
+
+
   public function show($request){
     $id = $request['id'];
     $categoria = Categoria::findById(compact('id'));
-    return $this->render('categorias/show', compact("categoria"));
+    $user = $_SESSION['user'];
+		if(isset($user)){
+      return $this->render('categorias/show', compact("categoria"));
+    } else {
+        $error = 'usuario o contrasenia invalida';
+        return $this->render('login/login', compact('error'));
+    }
   }
   public function edit($request){
     $id = $request['id'];
     $categoria = Categoria::findById(compact('id'));
-    return $this->render('categorias/edit', compact("categoria"));
+    $user = $_SESSION['user'];
+		if(isset($user)){
+      return $this->render('categorias/edit', compact("categoria"));
+    } else {
+        $error = 'usuario o contrasenia invalida';
+        return $this->render('login/login', compact('error'));
+    }
 
 
   }
@@ -41,8 +69,14 @@ class CategoriaController extends BaseController {
 
   public function destroy($request){
     $id = $request['id'];
-    Categoria::destroy(compact("id"));
-    header('Location: backend.php?controller=CategoriaController&action=index');
+    $user = $_SESSION['user'];
+		if(isset($user)){
+      Categoria::destroy(compact("id"));
+      header('Location: backend.php?controller=CategoriaController&action=index');
+    } else {
+        $error = 'usuario o contrasenia invalida';
+        return $this->render('login/login', compact('error'));
+    }
   }
 }
 
