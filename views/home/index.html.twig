@@ -30,7 +30,7 @@
         {% endif %}
       </div>
       <div class="center">
-        <h3 class="center">Programacion Diaria</h3>
+        <h3 class="center">Programacion Del dia {{fecha}}</h3>
         <table class="table">
           <thead>
             <tr>
@@ -55,6 +55,14 @@
             {% endfor %}
           </tbody>
         </table>
+
+        <a href='index.php?controller=BaseController&action=anterior&fecha={{fecha}}'>
+          < Dia Anterior
+        </a> |
+        <a href='index.php?controller=BaseController&action=siguiente&fecha={{fecha}}'>
+          Siguiente Dia >
+        </a>
+
         <form action="index.php" name="busquedaPorFecha" id="busquedaPorFecha" method="post">
           <input type="hidden" name="controller" value="BaseController"/>
           <input type="hidden" name="action" value="indexPorFecha"/>

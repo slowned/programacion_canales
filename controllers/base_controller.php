@@ -17,8 +17,9 @@ class BaseController {
 	}
 
 	public function index($request) {
-        $programas = Programa::all();
-        return $this->render('home/index', compact('programas'));
+        $fecha = '2018-11-11';
+        $programas = Programa::buscarPorFecha(compact('fecha'));
+        return $this->render('home/index', compact('programas', 'fecha'));
 	}
 
   public function login($request){
@@ -36,14 +37,47 @@ class BaseController {
       $fecha = date("Y-m-d", strtotime($_POST['fecha']));
       $programas = Programa::buscarPorFecha(compact('fecha'));
       if(isset($programas)){
-        return $this->render('/home/index', compact('programas'));
-      }  
+        return $this->render('/home/index', compact('programas', 'fecha'));}  
     } else {
         $error = "No hay programacion para ese dia";
         $programas = Programa::all();
-        return $this->render('home/index', compact('programas','error'));
+        return $this->render('home/index', compact('programas','error','fecha'));
     }
-
   }
+
+  public function siguiente($request) {
+    $fecha = $request['fecha'];
+    $dia = substr($fecha, -2);
+    $dia = (int)$dia + 1;
+    $anio = substr($fecha,0,4);
+    $mes = substr($fecha,-5,-3);
+    $fecha = $anio . "-" . $mes . "-" . $dia ;
+    $programas = Programa::buscarPorFecha(compact('fecha'));
+    if(isset($programas)){
+      return $this->render('/home/index', compact('programas','fecha'));
+    }  else {
+      $error = "ERROR NO SE PUEDO OBTENER DICHA INFORMACION!!";
+      $programas = Programa::all();
+      return $this->render('home/index', compact('programas','error','fecha'));
+    }
+  }
+
+  public function anterior($request) {
+    $fecha = $request['fecha'];
+    $dia = substr($fecha, -2);
+    $dia = (int)$dia - 1;
+    $anio = substr($fecha,0,4);
+    $mes = substr($fecha,-5,-3);
+    $fecha = $anio . "-" . $mes . "-" . $dia ;
+    $programas = Programa::buscarPorFecha(compact('fecha'));
+    if(isset($programas)){
+      return $this->render('/home/index', compact('programas','fecha'));
+    }  else {
+      $error = "ERROR NO SE PUEDO OBTENER DICHA INFORMACION!!";
+      $programas = Programa::all();
+      return $this->render('home/index', compact('programas','error','fecha'));
+    }
+  }
+  
 }
 ?>
