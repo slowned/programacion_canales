@@ -1,0 +1,52 @@
+
+EL ARCHIVO 'conexion.php' NO ANDA (crear un usuario de mysql)
+```bash
+mysql -uroot -p -e 'create database canales'
+
+# crear un usuarior admin y darle permisos en canales
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'a.s';
+GRANT ALL ON canales.* TO 'admin'@'localhost';
+
+```
+
+
+
+
+
+Instalar Paquetes requeridos:
+
+```bash
+sudo apt-get install -y \
+  php7 \
+  php7-cli \
+  php7-mysql 
+```
+
+Instalar mysql:
+
+```bash
+sudo apt-get install -y mysql-server
+```
+
+Crear base de datos:
+
+
+Correr el servidor de prueba:
+
+```bash
+# parados en el mismo directorio del index.php
+php -S 0.0.0.0:8000
+
+
+```
+## home de los usuarios normales
+localhost:8000 
+localhost:8000/index.php
+## backend home de los usuarios registrados
+localhost:8000/backend.php
+
+
+## NO ANDAN LAS COOKIES
+
+
+
