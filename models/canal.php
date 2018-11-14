@@ -1,15 +1,16 @@
 <?php
+include("conexion.php");
 class Canal{
 
   static function all(){
-		$pdo = new PDO('mysql:host=localhost;dbname=canales', 'admin', 'a.s');
+		$pdo = conectar(); 
     $query = $pdo->prepare("SELECT * FROM canal");
     $query->execute();
     return $query->fetchAll(PDO::FETCH_ASSOC);
   }
 
   static function save($params){
-		$pdo = new PDO('mysql:host=localhost;dbname=canales', 'admin', 'a.s');
+		$pdo = conectar(); 
     $query = $pdo->prepare("INSERT INTO canal(nombre, numero) VALUES(:nombre, :numero)");
     $query->execute($params);
   }
