@@ -57,13 +57,14 @@ class BaseController {
     $anio = substr($fecha,0,4);
     $mes = substr($fecha,-5,-3);
     $fecha = $anio . "-" . $mes . "-" . $dia ;
+    $categorias = Categoria::all();
     $programas = Programa::buscarPorFecha(compact('fecha'));
     if(isset($programas)){
-      return $this->render('/home/index', compact('programas','fecha'));
+      return $this->render('/home/index', compact('programas','fecha','categorias'));
     }  else {
       $error = "ERROR NO SE PUEDO OBTENER DICHA INFORMACION!!";
       $programas = Programa::all();
-      return $this->render('home/index', compact('programas','error','fecha'));
+      return $this->render('home/index', compact('programas','error','fecha','categorias'));
     }
   }
 
@@ -74,13 +75,14 @@ class BaseController {
     $anio = substr($fecha,0,4);
     $mes = substr($fecha,-5,-3);
     $fecha = $anio . "-" . $mes . "-" . $dia ;
+    $categorias = Categoria::all();
     $programas = Programa::buscarPorFecha(compact('fecha'));
     if(isset($programas)){
-      return $this->render('/home/index', compact('programas','fecha'));
+      return $this->render('/home/index', compact('programas','fecha','categorias'));
     }  else {
       $error = "ERROR NO SE PUEDO OBTENER DICHA INFORMACION!!";
       $programas = Programa::all();
-      return $this->render('home/index', compact('programas','error','fecha'));
+      return $this->render('home/index', compact('programas','error','fecha','categorias'));
     }
   }
   
